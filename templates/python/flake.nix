@@ -44,7 +44,7 @@
           fi
           source .venv/bin/activate
 
-          # Validate requirements.txt
+          # Install from requirements.txt only when it has changed
           if [ ! -f requirements.txt ]; then
             echo ""
             echo "⚠️  WARNING: requirements.txt not found!"
@@ -60,7 +60,13 @@
               echo "     pip install -r requirements.txt && pip freeze > requirements.txt"
               echo ""
             fi
-            pip install -r requirements.txt --quiet
+            REQS_HASH=$(sha256sum requirements.txt | cut -d' ' -f1)
+            HASH_FILE=".venv/.reqs_hash"
+            if [ ! -f "$HASH_FILE" ] || [ "$(cat $HASH_FILE)" != "$REQS_HASH" ]; then
+              echo "Installing dependencies..."
+              pip install -r requirements.txt --quiet
+              echo "$REQS_HASH" > "$HASH_FILE"
+            fi
           fi
 
           # Project-specific environment variables — uncomment and set as needed:
