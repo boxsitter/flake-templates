@@ -53,7 +53,7 @@
             echo ""
           else
             # Warn about any unpinned package lines (no version specifier)
-            if grep -qE '^[a-zA-Z0-9_-]+$' requirements.txt 2>/dev/null; then
+            if grep -vE '^\s*#|^\s*$' requirements.txt | grep -qvE '(==|>=|<=|~=|!=)'; then
               echo ""
               echo "⚠️  WARNING: requirements.txt has unpinned dependencies."
               echo "   Lock them for reproducibility:"
