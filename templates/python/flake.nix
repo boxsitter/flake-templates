@@ -27,16 +27,16 @@
         buildInputs = with pkgs; [
           # Python interpreter - adjust version as needed
           python311
+          stdenv.cc.cc.lib  # C standard library (needed for many compiled packages)
 
           # Uncomment system libraries as needed by your packages:
-          # stdenv.cc.cc.lib  # C standard library (needed for many compiled packages)
           # libffi            # Foreign Function Interface library
           # openssl           # SSL/TLS support
         ];
 
         # To expose system libraries at runtime for compiled packages, add to shellHook:
-        #   export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath (with pkgs; [ stdenv.cc.cc.lib openssl ])};
         shellHook = ''
+          export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath (with pkgs; [ stdenv.cc.cc.lib openssl ])};
           # Create and activate a project-local virtual environment
           if [ ! -d .venv ]; then
             echo "Creating Python virtual environment..."
