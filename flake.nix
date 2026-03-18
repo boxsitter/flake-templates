@@ -8,14 +8,15 @@
         description = "Python development environment with venv and requirements.txt";
       };
 
+      nodejs = {
+        path = ./templates/nodejs;
+        description = "Node.js development environment with npm and package.json";
+      };
+
       # Add future templates here:
       # java = {
       #   path = ./templates/java;
       #   description = "Java development environment with Gradle";
-      # };
-      # nodejs = {
-      #   path = ./templates/nodejs;
-      #   description = "Node.js development environment";
       # };
       # rust = {
       #   path = ./templates/rust;
