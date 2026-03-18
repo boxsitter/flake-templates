@@ -1,1 +1,1 @@
-nix flake init -t github:boxsitter/flake-templates#[TEMPLATE NAME]
+nix flake init --refresh -t github:boxsitter/flake-templates#[TEMPLATE NAME]
