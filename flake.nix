@@ -13,6 +13,11 @@
         description = "Node.js development environment with npm and package.json";
       };
 
+      react-vite = {
+        path = ./templates/react-vite;
+        description = "React + Vite development environment (Node.js 22, prompts to scaffold on first use)";
+      };
+
       # Add future templates here:
       # java = {
       #   path = ./templates/java;
