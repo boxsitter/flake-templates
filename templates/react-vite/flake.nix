@@ -24,7 +24,7 @@
             echo "React + Vite environment ready  ($(node --version), npm $(npm --version))"
             echo ""
             echo "New project? Scaffold it with:"
-            echo "  npm create vite@latest . --template react"
+            echo "  npm create vite@latest . -- --template react"
             echo "  npm install"
             echo "  npm run dev"
             echo ""
