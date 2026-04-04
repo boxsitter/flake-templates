@@ -19,6 +19,12 @@
         shellHook = ''
           export NODE_ENV="development"
 
+          # Create a stable symlink at .node so IDEs can be configured once to
+          # find Node at a path that never changes even when nixpkgs updates
+          if [ ! -L .node ] || [ "$(readlink .node)" != "${pkgs.nodejs_22}" ]; then
+            ln -sfn ${pkgs.nodejs_22} .node
+          fi
+
           if [ ! -f package.json ]; then
             echo ""
             echo "React + Vite environment ready  ($(node --version), npm $(npm --version))"
