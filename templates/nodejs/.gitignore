@@ -2,16 +2,10 @@
 node_modules/
 .npm
 
-# Local Node.js symlink (created by nix shellHook, stable path for IDE config)
-.node
-
 # Build output
 dist/
 dist-ssr/
 build/
-
-# Vite
-.vite/
 
 # Nix
 result
