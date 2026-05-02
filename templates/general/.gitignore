@@ -1,0 +1,21 @@
+# Nix build outputs
+result
+result-*
+
+# direnv cache
+.direnv
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Editor artefacts
+.idea/
+*.swp
+*.swo
+*~
